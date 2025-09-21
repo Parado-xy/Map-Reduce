@@ -1,5 +1,5 @@
 use std::{
-    collections::HashMap, error::Error, sync::mpsc::{channel, Sender}
+    collections::HashMap, error::Error, sync::mpsc::{Sender}
 };
 
 /// This function will use a mpsc channel.

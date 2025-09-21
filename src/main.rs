@@ -6,7 +6,7 @@ mod reduce;
 fn main() -> Result<(), Box<dyn Error>> {
     let folds = 5usize;
     let job_coordinator = coordinator::Coordinator { folds };
-    let file_path = "test_files/known_counts.txt";
+    let file_path = "test_files/exact_test.txt";
     let chunks = job_coordinator.split(file_path)?;
      
 
