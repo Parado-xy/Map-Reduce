@@ -8,6 +8,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let job_coordinator = coordinator::Coordinator { folds };
     let file_path = "test_files/exact_test.txt";
     let chunks = job_coordinator.split(file_path)?;
+    let len_chunks = chunks.len(); 
      
 
     let (sender, receiver) = mpsc::channel();
@@ -25,7 +26,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let mut main_map = HashMap::new();
 
-    for _ in 0..folds {
+    for _ in 0..len_chunks {
         // Process received data in the main thread
         match receiver.recv_timeout(Duration::from_secs(10)) {
             Ok(recieved_map) => {
